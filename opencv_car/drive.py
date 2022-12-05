@@ -3,6 +3,8 @@ import vesc_class as VESC
 import image_class
 
 def main():
+
+    print("Running Team 15's car...")
     # Create pipeline
     pipeline = dai.Pipeline()
 
@@ -32,7 +34,7 @@ def main():
         carVESC = VESC.VESC('/dev/ttyACM0') 
 
         # smoothing variables
-        instances = 5 # get n frame values and average to allow for smoothing
+        instances = 1 # get n frame values and average to allow for smoothing
         steering_val = []; throttle_val = [] # array to hold values
 
         while True:
@@ -40,6 +42,7 @@ def main():
                 # get frame from camera
                 videoIn = video.get()
                 orig_frame = videoIn.getCvFrame()
+
 
                 ## calculate steering and throttle based on lane_detection
                 # steering, throttle = lane_detection.main(orig_frame)
@@ -55,7 +58,10 @@ def main():
             throttle_avg = sum(throttle_val)/instances
             print(steering_avg, throttle_avg)
             
+
             # Use VESC.run() to set steering and throttle
+            # carVESC.run(steering_avg,throttle_avg)
+
             carVESC.run(steering,throttle)
 
             # reset steering and throttle vals
