@@ -7,8 +7,9 @@ def main():
     cap = cv2.VideoCapture(0)
     # ret, frame = cap.read()
 
+    used_image_link = 'dayimages/data/images/775_cam_image_array_.jpg'
     # It will turn right when more blue pixels. Left when more green pixels.
-    img = cv2.imread('nightimages/imageleft1.jpg')
+    img = cv2.imread(used_image_link)
 
     imageToUse = cv2.resize(img,(300, 200))
     # convert to hsv colorspace

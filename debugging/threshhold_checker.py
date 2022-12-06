@@ -14,7 +14,7 @@ def main():
     cv2.createTrackbar('max_green', 'Track Bars', 0, 255, doNothing)
     cv2.createTrackbar('max_red', 'Track Bars', 0, 255, doNothing)
 
-    image_path = 'nightimages/imageleft1.jpg'
+    image_path = 'dayimages/data/images/775_cam_image_array_.jpg'
     # reading the image
     object_image = cv2.imread(image_path)
 
